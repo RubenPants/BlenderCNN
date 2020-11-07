@@ -1,0 +1,14 @@
+# Blender
+bpy
+
+# Model
+keras
+tensorflow
+tensorflow-gpu
+
+# Other
+jupyter
+ipython-autotime
+matplotlib
+tqdm
+scikit-learn
