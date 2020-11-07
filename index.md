@@ -82,5 +82,5 @@ The results are very satisfactory, as shown in the image below which compares th
 
 # 6. Sources
 
-- https://docs.blender.org/api/current/index.html 
-- https://keras.io/api/layers/convolution_layers/convolution2d_transpose/
+- [https://docs.blender.org/api/current/index.html](https://docs.blender.org/api/current/index.html) 
+- [https://keras.io/api/layers/convolution_layers/convolution2d_transpose/](https://keras.io/api/layers/convolution_layers/convolution2d_transpose/)
