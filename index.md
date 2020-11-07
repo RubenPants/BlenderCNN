@@ -1,13 +1,13 @@
 # 0. Table of Contents
 
-[1. Project description](#1. Project description)
-[2. Blender](2. Blender)
-[2.1. Scene](2.1. Scene)
-[2.2. Code](2.2. Code)
-[3. Deep learning model](3. Deep learning model)
-[4. Training](4. Training)
-[5. Results](5. Results)
-[6. Sources](6. Sources)
+1. [Project description](#1. Project description)
+2. [Blender](#2. Blender)
+   1. [Scene](#2.1. Scene)
+   2. [Code](#2.2. Code)
+3. [Deep learning model](#3. Deep learning model)
+4. [Training](#4. Training)
+5. [Results](#5. Results)
+6. [Sources](#6. Sources)
 
 # 1. Project description
 
