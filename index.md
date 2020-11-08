@@ -1,6 +1,6 @@
 # 1. Project description
 
-The goal of the project is to generate images based on vectoral data. In every image, a floating glowing ball is shown in a dark room. There are two aspects that vary in every image, this being the color and the position of the floating ball.
+The goal of the project is to generate images based on vectoral data. In every image, a floating glowing ball is shown in a dark room. There are two aspects prone to change within every scene; this being the color and the position of the floating ball.
 
 Every scene is represented by a vector of five floating numbers: 
 
@@ -11,7 +11,7 @@ Based on this vector (also called the image's feature), a Deep Learning model tr
 
 # 2. Blender
 
-Since the number of images with a *floating glowing ball in a dark room* is sparse, another way to collect this data needs to be found. [Blender](https://www.blender.org/), a free and open source 3D creation suite, comes to the rescue! Blender is an easy to use program with a vibrant community that covers all artistic needs ranging from creating art to creating data for Machine Learning.
+Since the number of images with a *floating glowing ball in a dark room* is sparse on the internet, another way to collect this data needs to be found. [Blender](https://www.blender.org/), a free and open source 3D creation suite, comes to the rescue! Blender is an easy to use program with a vibrant community that covers all artistic needs ranging from creating art to creating data for Machine Learning.
 
 ## 2.1. Scene
 
@@ -23,19 +23,19 @@ For our use-case, we'll only need a simple scene that has a room (this being a f
 
 Luckily, you don't need to change and render each scene manually in order to collect your data. More even, you can write your own Python scripts in Blender to automate this process! The following lines of code show you the most important methods to call in order to automate the data generation. To experiment with this code yourself, open the *Scripting* tab in the Blender-scene included in the repo. **Note:** The code shown below assumes that you've already created a Blender scene. 
 
-In order to let the Blender-magic spark, you'll need to import *blenderpy* (`bpy`) package first:
+In order to let the Blender-magic spark, you'll need to import the *blender Python* (`bpy`) package first:
 
 ```python
 import bpy
 ```
 
-To focus on the right object (i.e. the object you want to augment) in your blender scene, run:
+To focus on the right object (the object you want to augment) of your scene, run:
 
 ```python
 so = bpy.context.scene.objects["<name-of-your-object>"]
 ```
 
-You can make changes to your object as follows:
+You can make changes to this object as follows:
 
 ```python
 # Move to random location
@@ -64,13 +64,13 @@ bpy.ops.render.render(write_still=True)
 
 The goal of our model is to generate an image based on a single feature vector of five numbers. The `Transpose Convolutional Neural Network` layers are perfectly suited for this problem!
 
-The model, as depicted in the image below, starts out with a fully connected (`Dense`) layer, followed by four layers that each consist of a `Conv2DTranspose`, `BatchNormalization` and `ReLU` layer, with the only exception being the last layer that trades the `ReLU` for a `Sigmoid` since we want the output values to be between 0 and 1. The model is implemented in [Keras](https://keras.io/).
+The model, as depicted in the image below, starts out with a fully connected (`Dense`) layer followed by four layers that each consist of a `Conv2DTranspose`, `BatchNormalization` and `ReLU` layer. The only exception is the last layer that trades the `ReLU` for a `Sigmoid` since we want the output values to be between 0 and 1. The model is implemented in [Keras](https://keras.io/).
 
 ![Model architecture](https://github.com/RubenPants/BlenderCNN/blob/main/images/architecture.png?raw=true)
 
 # 4. Training
 
-For training and evaluation, 10.000 samples are used; 9.000 for training itself and 1.000 for validation. To get a clear overview of the training process, [TensorBoard](https://www.tensorflow.org/tensorboard) is used, as shown in the image below. For training, the Adam optimizer with a Mean Squared Error loss is used. 
+In total 10.000 sample images (together with their corresponding features) are used: 9.000 for training and 1.000 for validation. To get a clear overview of the training process, [TensorBoard](https://www.tensorflow.org/tensorboard) is used. Training is done using the Adam optimizer with a Mean Squared Error loss. 
 
 ![TensorBoard overview](https://github.com/RubenPants/BlenderCNN/blob/main/images/tensorboard.png?raw=true)
 
